@@ -1,0 +1,20 @@
+div::first-line{
+
+    color:brown;
+}
+div::first-letter{
+    color:rgb(201, 114, 8);
+    font-size: xx-large;
+}
+::selection{
+           background-color:rgb(84, 93, 170);
+           color: rgb(104, 5, 59);
+}
+  
+input:focus{
+    background-color: blueviolet;
+} 
+input:checked{
+    height: 100px;
+    width:100px;
+}
