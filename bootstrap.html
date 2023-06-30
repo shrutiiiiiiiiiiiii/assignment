@@ -1,0 +1,74 @@
+• What are the advantages of Bootstrap?
+-t’s responsive. Today, people are more likely to be browsing the web on a mobile phone or a tablet than on a personal computer. A responsive design will automatically 
+resize to suit the page.
+-It automatically resizes images and elements. Nothing has to be handled manually by the developer — it’s all done for them.
+-It’s grid-based. The grid mechanic makes it much easier for developers to manage where elements show up on their site.
+
+.What is a Bootstrap Container, and how does it work?
+-Containers are used to pad the content inside of them, and there are two container classes available:
+1)The .container class provides a responsive fixed width container.
+2)The .container-fluid class provides a full width container, spanning the entire width of the viewport.
+
+.• What are the default Bootstrap text settings?
+-Font family: The default font family in Bootstrap is “Helvetica Neue”, Helvetica, Arial, sans-serif.
+Font size: The default font size for the body element in Bootstrap is 16px.
+Font weight: The default font weight for headings in Bootstrap is bold.
+Line height: The default line height for text in Bootstrap is 1.5.
+Text color: The default text color in Bootstrap is black (#000).
+Text alignment: The default text alignment in Bootstrap is left-aligned.
+Text decoration: The default text decoration in Bootstrap is none.
+Text transform: The default text transform in Bootstrap is none.
+
+• What do you know about the Bootstrap Grid System?
+-Grid System: Bootstrap Grid System allows up to 12 columns across the page. You can use each of them individually or merge them together for wider columns.
+ You can use all combinations of values summing up to 12. You can use 12 columns each of width 1, or use 4 columns each of width 
+3 or any other combination.
+
+• What is the difference between Bootstrap 4 and Bootstrap 5?
+-BASIS OF	                              BOOTSTRAP 4	                                  BOOTSTRAP 5
+Grid Syste               It has 5 tier (xs, sm, md, lg, xl).	                    It has 6 tier (xs, sm, md, lg, xl, xxl).
+Color	                       It has limited colors.	                     Extra colors added with the looks, A card improved color palette. there are various shades available to choose.
+Jquery	                It has jquery and all related plugins.	Jquery is removed and switched to vanilla JS with some working plugins
+Internet Explorer	Bootstrap 4 supports both IE 10 and 11.	          Bootstrap 5 doesn’t support IE 10 and 11.
+Utilities API	We cannot modify utilities in bootstrap 4	      Bootstrap 5 gave freedom to modify and also create our own utility
+
+• How can you use Bootstrap to make thumbnails?
+-Thumbnail Image: A thumbnail is a small image that represents a larger image. Bootstrap has an easy way to do this with thumbnails. Bootstrap’s .thumbnail class 
+is used to show linked images in grids (grid system), a thumbnail is created using class .thumbnail within the element <a>. 
+ The class .col-sm-* and .col-md-* (where * represent number ), it is used to create grids of the images.
+
+• In Bootstrap 4, what is flexbox? 
+-The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.
+
+• How can one create an alert in Bootstrap? 
+-Approach: The .alert class followed by contextual classes are used to display the alert message on website. The alert classes are: .alert-success, .alert-info, .alert-warning, 
+.alert-danger, .alert-primary, .alert-secondary,.alert-light and .alert-dark. We can use .alert-warning to create warning notification alerts in bootstrap.
+
+
+.example of bootstrap card?
+-<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+  <title>Bootstrap Card Example</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="path/to/image.jpg" class="card-img-top" alt="Image">
+          <div class="card-body">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">This is a sample card.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
