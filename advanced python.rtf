@@ -1,0 +1,271 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 A1)filename.txt: The name of the file you want to open.\par
+mode: A string that specifies the mode in which the file is opened. The common modes are:\par
+'r' : Read (default mode)\par
+'w' : Write (creates a new file or truncates an existing file)\par
+'a' : Append (adds to the end of the file if it exists)\par
+'b' : Binary mode (e.g., 'rb', 'wb' for reading/writing in binary)\par
+'x' : Create (creates a new file, returns an error if the file exists)\par
+'t' : Text mode (default mode for reading/writing text files)\par
+\par
+A2)# Function to read and print the entire content of a text file\par
+def read_file(filename):\par
+    try:\par
+        # Open the file in read mode\par
+        with open(filename, 'r') as file:\par
+            # Read the entire file content\par
+            content = file.read()\par
+            # Print the content\par
+            print(content)\par
+    except FileNotFoundError:\par
+        print(f"The file \{filename\} does not exist.")\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+\par
+# Replace 'yourfile.txt' with the actual file name you want to read\par
+read_file('yourfile.txt')\par
+\par
+A3)# Function to append text to a file and display the content\par
+def append_and_display(filename, text_to_append):\par
+    try:\par
+        # Open the file in append mode\par
+        with open(filename, 'a') as file:\par
+            # Append the provided text to the file\par
+            file.write(text_to_append + '\\n')\par
+        \par
+        # Open the file again in read mode to display the content\par
+        with open(filename, 'r') as file:\par
+            content = file.read()\par
+            print("File content after appending:")\par
+            print(content)\par
+    except FileNotFoundError:\par
+        print(f"The file \{filename\} does not exist.")\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+\par
+# Replace 'yourfile.txt' with the actual file name you want to use\par
+# Replace 'This is the text to append.' with the actual text you want to append\par
+append_and_display('yourfile.txt', 'This is the text to append.')\par
+\par
+A4)def read_first_n_lines(filename, n):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            lines = ' '.join([file.readline().strip() for _ in range(n)])\par
+            print(lines)\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+\par
+read_first_n_lines('yourfile.txt', 3)\par
+\par
+A5)from collections import deque\par
+\par
+def read_last_n_lines(filename, n):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            last_lines = deque(file, maxlen=n)\par
+            print(''.join(last_lines))\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+\par
+read_last_n_lines('yourfile.txt', 3)\par
+\par
+A6)def read_file_into_list(filename):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            # Read each line and store it in a list\par
+            lines = file.readlines()\par
+            # Strip newline characters from each line\par
+            lines = [line.strip() for line in lines]\par
+        return lines\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+        return []\par
+\par
+# Example usage\par
+lines_list = read_file_into_list('yourfile.txt')\par
+print(lines_list)\par
+\par
+A7)def read_file_into_variable(filename):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            # Read the file line by line and store all lines into a single variable\par
+            content = ''.join([line for line in file])\par
+        return content\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+        return ''\par
+\par
+A8)def find_longest_words(filename):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            # Read the file content and split it into words\par
+            words = file.read().split()\par
+            # Find the longest length of any word\par
+            max_len = len(max(words, key=len))\par
+            # Find all words that have the maximum length\par
+            longest_words = [word for word in words if len(word) == max_len]\par
+        return longest_words\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+        return []\par
+\par
+A9)from collections import Counter\par
+\par
+def count_word_frequency(filename):\par
+    try:\par
+        with open(filename, 'r') as file:\par
+            # Read the file content and split it into words\par
+            words = file.read().lower().split()\par
+            # Count the frequency of each word\par
+            word_count = Counter(words)\par
+        return word_count\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+        return \{\}\par
+\par
+A10)def copy_file_contents(source_filename, destination_filename):\par
+    try:\par
+        # Open the source file in read mode and the destination file in write mode\par
+        with open(source_filename, 'r') as source_file:\par
+            with open(destination_filename, 'w') as destination_file:\par
+                # Read the contents of the source file and write them to the destination file\par
+                contents = source_file.read()\par
+                destination_file.write(contents)\par
+        print(f"Contents copied from \{source_filename\} to \{destination_filename\}.")\par
+    except Exception as e:\par
+        print(f"An error occurred: \{e\}")\par
+\par
+A11)Exception handling in Python is a mechanism used to manage errors and other exceptional conditions that may occur during the execution of a program. Instead of allowing the program to crash, you can catch and handle exceptions to ensure the program continues running or fails gracefully.\par
+In Python, an "error" typically refers to problems that occur during the execution of a program.\par
+\par
+A12)In Python, a try block can be followed by multiple except statements. You can have as many except blocks as needed to handle different types of exceptions. Each except block can catch a specific exception or a group of exceptions.\par
+\par
+try:\par
+    # Code that may cause an exception\par
+    result = int("not a number")\par
+except ValueError:\par
+    # Handling a ValueError\par
+    print("ValueError: Invalid input!")\par
+except TypeError:\par
+    # Handling a TypeError\par
+    print("TypeError: Type mismatch!")\par
+except Exception as e:\par
+    # Handling any other exception\par
+    print(f"An unexpected error occurred: \{e\}")\par
+Built-in Exception Classes\par
+Python provides a range of built-in exception classes that represent different types of errors. Here are some common ones:\par
+\par
+Exception: The base class for all built-in exceptions. All other exceptions derive from this class.\par
+\par
+ValueError: Raised when a function receives an argument of the right type but inappropriate value (e.g., trying to convert a string to an integer).\par
+\par
+TypeError: Raised when an operation or function is applied to an object of inappropriate type (e.g., adding a string to an integer).\par
+\par
+IndexError: Raised when trying to access an element from a list using an index that is out of range.\par
+\par
+KeyError: Raised when a dictionary key is not found.\par
+\par
+FileNotFoundError: Raised when trying to open a file that does not exist.\par
+\par
+ZeroDivisionError: Raised when attempting to divide by zero.\par
+\par
+AttributeError: Raised when an attribute reference or assignment fails.\par
+\par
+ImportError: Raised when an imported module cannot be found.\par
+\par
+IOError: Raised when an I/O operation (e.g., reading or writing a file) fails.\par
+\par
+RuntimeError: Raised for errors that do not fall into other categories and are detected during runtime.\par
+\par
+try:\par
+    # Example code that may raise exceptions\par
+    value = int("invalid")\par
+    with open("nonexistent_file.txt", "r") as file:\par
+        content = file.read()\par
+except ValueError:\par
+    print("ValueError: Invalid conversion!")\par
+except FileNotFoundError:\par
+    print("FileNotFoundError: The file does not exist!")\par
+except Exception as e:\par
+    print(f"An unexpected error occurred: \{e\}")\par
+In this example, multiple except blocks are used to handle different types of exceptions that may be raised during the execution of the try block.\par
+\par
+A13)The else part of a try-except-else block is executed only if no exceptions are raised in the try block. If the try block completes successfully without any errors, the else block runs. If an exception occurs, the else block is skipped, and the except blocks handle the exception instead.\par
+\par
+A14)The finally block is executed regardless of whether an exception was raised or not. It runs after the try block and any except or else blocks, ensuring that any cleanup actions (like closing files or releasing resources) are always performed.\par
+\par
+A15)try:\par
+    # Code that may cause an exception\par
+    result = int("not a number")\par
+except ValueError:\par
+    # Handling a ValueError\par
+    print("ValueError: Invalid input!")\par
+except TypeError:\par
+    # Handling a TypeError\par
+    print("TypeError: Type mismatch!")\par
+except Exception as e:\par
+    # Handling any other exception\par
+    print(f"An unexpected error occurred: \{e\}")\par
+\par
+A16)### OOP Concepts:\par
+\par
+1. **Classes and Objects**: \par
+   - **Class**: Blueprint for creating objects.\par
+   - **Object**: Instance of a class.\par
+\par
+2. **Encapsulation**: \par
+   - Bundles data and methods, restricting access to some components.\par
+\par
+3. **Inheritance**: \par
+   - Allows a class to inherit attributes and methods from another class.\par
+\par
+4. **Polymorphism**: \par
+   - Enables objects of different classes to be treated as objects of a common superclass.\par
+\par
+5. **Abstraction**: \par
+   - Hides complex implementation details and shows only necessary features.\par
+Multiple Inheritance in Python:\par
+\par
+Yes, Python supports multiple inheritance, allowing a class to inherit from more than one parent class.\par
+\par
+A17)### Defining a Class in Python\par
+\par
+To define a class in Python, use the `class` keyword followed by the class name and a colon. Inside the class, define methods using the `def` keyword. \par
+\par
+### `self`\par
+\par
+- **`self`**: Refers to the instance of the class. It is used to access variables and methods associated with the class instance.\par
+\par
+### Example of a Python Class\par
+\par
+```python\par
+class Dog:\par
+    def __init__(self, name):\par
+        self.name = name\par
+\par
+    def bark(self):\par
+        return f"\{self.name\} says Woof!"\par
+\par
+# Creating an instance of the class\par
+my_dog = Dog("Buddy")\par
+print(my_dog.bark())  # Output: Buddy says Woof!\par
+```\par
+\par
+- **`__init__`**: Initializes a new instance of the class.\par
+- **`self.name`**: Instance variable to store the dog's name.\par
+- **`bark`**: Method that uses `self` to access instance data and perform actions.\par
+\par
+A19)Instantiation in OOP refers to the process of creating an instance (or object) from a class. It involves allocating memory for the new object and initializing its attributes according to the class definition.\par
+\par
+A20)The `isinstance()` function is used to check whether an object `o` is an instance of class `A`.\par
+\par
+A21)The appropriate relationship between **Course** and **Faculty** is typically a **one-to-many** relationship:\par
+\par
+- **One-to-Many**: A single faculty member can teach multiple courses, but each course is usually taught by one faculty member at a time.\par
+\par
+A22)The appropriate relationship between **Student** and **Person** is a **one-to-one** relationship:\par
+\par
+- **One-to-One**: Each student is a specific person, and each person in the context of the system can be represented as a student.\par
+}
+ 
